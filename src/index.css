@@ -1,9 +1,67 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Roboto Mono, Helvetica, Arial, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme */
+  :root {
+    --c-bg: 248 250 252; /* slate-50 */
+    --c-surface: 255 255 255; /* white */
+    --c-fg: 15 23 42; /* slate-900 */
+    --c-body: 30 41 59; /* slate-800 */
+    --c-muted: 71 85 105; /* slate-600 */
+    --c-line: 15 23 42; /* slate-900, used at low alpha */
+    --c-accent2: 21 94 117; /* cyan-800 — strong contrast on light */
+  }
+
+  /* Dark theme */
+  .dark {
+    --c-bg: 7 11 18;
+    --c-surface: 13 19 31;
+    --c-fg: 255 255 255;
+    --c-body: 226 232 240; /* slate-200 */
+    --c-muted: 148 163 184; /* slate-400 */
+    --c-line: 255 255 255; /* white, used at low alpha */
+    --c-accent2: 103 232 249; /* cyan-300 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* offset for the sticky navbar when jumping to anchors */
+    scroll-padding-top: 5rem;
+    @apply bg-bg;
+  }
+
+  body {
+    @apply bg-bg text-body font-mono antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-sans;
+  }
 }
 
-html body {
-    height: 100%;
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+  }
+
+  .section-title {
+    @apply font-sans text-3xl font-bold tracking-tight text-fg sm:text-4xl;
+  }
+
+  .section-kicker {
+    @apply mb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent2;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line/10 bg-fg/[0.04] px-3 py-1 text-xs font-medium text-muted;
+  }
 }

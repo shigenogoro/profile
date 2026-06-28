@@ -1,36 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpg" href="/goro71.jpg" />
+    <link rel="icon" type="image/png" href="/profile/avatar.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Thumbnil for Link Share -->
-    <meta property="og:title" content="Sheng-Kai Wen's Profile"/>
+    <meta
+      name="description"
+      content="Sheng-Kai (Kyle) Wen — AI/ML Engineer, MS Computer Science at UMass Amherst. Building PuckAI; RAG, LLMs & information retrieval."
+    />
+
+    <!-- Open Graph / link share -->
+    <meta property="og:title" content="Sheng-Kai (Kyle) Wen — AI/ML Engineer" />
     <meta property="og:type" content="profile" />
-    <meta property="og:image" content='https://shigenogoro.github.io/profile/goro71.jpg' />
-    <meta property="og:description" content="Hi, I'm Sheng-Kai Wen, a computer science student at UMass Amherst." />
+    <meta
+      property="og:image"
+      content="https://shigenogoro.github.io/profile/goro71.jpg"
+    />
+    <meta
+      property="og:description"
+      content="AI/ML Engineer · MS CS, UMass Amherst. Building PuckAI; RAG, LLMs & information retrieval."
+    />
     <meta property="og:url" content="https://shigenogoro.github.io/profile/" />
-    <meta property='og:image:width' content='1200' />
-    <meta property='og:image:height' content='627' />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <title>Sheng-Kai(Kyle) Wen</title>
+    <title>Sheng-Kai (Kyle) Wen — AI/ML Engineer</title>
 
-    <!-- Google Font for Sono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
-    <!-- Google Font for Roboto Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var dark = stored ? stored === 'dark' : true
+          document.documentElement.classList.toggle('dark', dark)
+        } catch (e) {}
+      })()
+    </script>
 
-    <!-- Icon CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts: Sono + Roboto Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
