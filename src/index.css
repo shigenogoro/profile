@@ -33,7 +33,7 @@
   }
 
   body {
-    @apply bg-bg text-body font-mono antialiased;
+    @apply bg-bg text-body font-sans antialiased;
   }
 
   ::selection {
@@ -44,7 +44,7 @@
   h2,
   h3,
   h4 {
-    @apply font-sans;
+    @apply font-display;
   }
 }
 
@@ -54,7 +54,7 @@
   }
 
   .section-title {
-    @apply font-sans text-3xl font-bold tracking-tight text-fg sm:text-4xl;
+    @apply font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl;
   }
 
   .section-kicker {

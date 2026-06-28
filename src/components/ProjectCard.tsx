@@ -4,7 +4,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const featured = project.featured
   return (
     <article
-      className={`group flex flex-col overflow-hidden rounded-2xl border border-line/10 bg-surface transition hover:border-accent/40 hover:shadow-glow ${
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-line/10 bg-surface transition hover:border-accent/40 hover:shadow-glow ${
         featured ? 'md:flex-row' : ''
       }`}
     >
@@ -12,7 +12,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <div
           className={`overflow-hidden ${
             featured
-              ? 'flex items-center justify-center bg-ink-950 p-4 md:w-1/2'
+              ? 'flex items-center justify-center bg-ink-950 p-2 md:w-1/2'
               : 'aspect-[1.9/1]'
           }`}
         >
@@ -22,7 +22,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             loading="lazy"
             className={
               featured
-                ? 'max-h-[22rem] w-full rounded-lg object-contain'
+                ? 'max-h-[34rem] w-full rounded-lg object-contain'
                 : 'h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]'
             }
           />
@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       <div className={`flex flex-1 flex-col p-6 ${featured ? 'md:w-1/2' : ''}`}>
         <div className="mb-1 flex items-center gap-2">
-          <h3 className="font-sans text-xl font-bold text-fg">{project.name}</h3>
+          <h3 className="font-display text-xl font-bold text-fg">{project.name}</h3>
           {featured && (
             <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
               Featured

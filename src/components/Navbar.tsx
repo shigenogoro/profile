@@ -31,7 +31,7 @@ const Navbar = () => {
       }`}
     >
       <nav className="section-shell flex h-16 items-center justify-between">
-        <a href="#top" className="font-sans text-lg font-bold tracking-tight text-fg">
+        <a href="#top" className="font-display text-lg font-bold tracking-tight text-fg">
           {profile.shortName}
           <span className="text-accent">.</span>
         </a>

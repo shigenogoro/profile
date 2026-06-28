@@ -32,7 +32,7 @@ export const experience: ExperienceItem[] = [
     role: 'Co-Founder & Full-Stack Engineer',
     org: 'Fan2see',
     location: 'Taipei, Taiwan',
-    period: '2021 – 2022',
+    period: 'Apr 2021 – Apr 2022',
     summary:
       'Co-founded a personalized video-message platform connecting fans with their favorite stars, built on a PERN + AWS stack.',
     points: [

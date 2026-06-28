@@ -13,7 +13,7 @@ const Skills = () => (
         {skills.map((group, i) => (
           <Reveal key={group.category} delay={i * 0.05}>
             <div className="h-full rounded-2xl border border-line/10 bg-surface p-6">
-              <h3 className="mb-4 font-sans text-lg font-bold text-fg">
+              <h3 className="mb-4 font-display text-lg font-bold text-fg">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">

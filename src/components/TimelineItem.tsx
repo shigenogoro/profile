@@ -9,7 +9,7 @@ const TimelineItem = ({ item, last }: { item: ExperienceItem; last: boolean }) =
 
     <div className="pb-10">
       <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-        <h3 className="font-sans text-lg font-bold text-fg">{item.role}</h3>
+        <h3 className="font-display text-lg font-bold text-fg">{item.role}</h3>
         <span className="font-mono text-xs text-muted">{item.period}</span>
       </div>
       <p className="text-sm font-medium text-accent2">

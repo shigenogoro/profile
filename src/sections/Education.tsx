@@ -21,9 +21,9 @@ const Education = () => (
                   className="h-12 w-12 shrink-0 rounded-md bg-white/90 object-contain p-1"
                 />
               )}
-              <div>
+              <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <h3 className="font-sans text-lg font-bold text-fg">{edu.school}</h3>
+                  <h3 className="font-display text-lg font-bold text-fg">{edu.school}</h3>
                   <span className="font-mono text-xs text-muted">{edu.period}</span>
                 </div>
                 <p className="text-sm font-medium text-accent2">{edu.degree}</p>

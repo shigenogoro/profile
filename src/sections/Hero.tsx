@@ -27,10 +27,10 @@ const Hero = () => (
         <p className="mb-3 font-mono text-sm uppercase tracking-[0.25em] text-accent2">
           Hi, I am
         </p>
-        <h1 className="font-sans text-4xl font-extrabold leading-tight tracking-tight text-fg sm:text-5xl lg:text-6xl">
+        <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-fg sm:text-5xl lg:text-6xl">
           {profile.name}
         </h1>
-        <div className="mt-3 flex items-center gap-2 font-sans text-2xl font-semibold text-accent2 sm:text-3xl">
+        <div className="mt-3 flex items-center gap-2 font-display text-2xl font-semibold text-accent2 sm:text-3xl">
           <Typewriter
             options={{
               strings: profile.typewriter,

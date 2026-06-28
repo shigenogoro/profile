@@ -5,7 +5,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Sono', 'Helvetica', 'Arial', 'sans-serif'],
+        // Display / titles — keep Sono
+        display: ['Sono', 'Helvetica', 'Arial', 'sans-serif'],
+        // Body / content — Inter for readability
+        sans: ['Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
         mono: ['"Roboto Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
