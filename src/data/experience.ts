@@ -1,4 +1,7 @@
 import type { ExperienceItem } from './types'
+import puckaiLogo from '../assets/logo/puckai_logo.png'
+import hriLogo from '../assets/logo/Honda_99PLabs_logo.png'
+import fan2seeLogo from '../assets/logo/fan2see_logo.png'
 
 export const experience: ExperienceItem[] = [
   {
@@ -6,6 +9,7 @@ export const experience: ExperienceItem[] = [
     org: 'University of Massachusetts Amherst (CICS · CICStep)',
     location: 'Amherst, MA',
     period: 'May 2025 – Present',
+    logo: puckaiLogo,
     summary:
       'Started PuckAI as an independent side project, took it live, and now develop it through the UMass CICS CICStep program — a full-stack NHL analytics platform that tiers, profiles, and projects players across five decades of hockey.',
     points: [
@@ -20,6 +24,7 @@ export const experience: ExperienceItem[] = [
     org: 'Honda Research Institute (HRI) & 99P Labs',
     location: 'Amherst, MA',
     period: 'Feb 2026 – May 2026',
+    logo: hriLogo,
     summary:
       'Researched repo-level Graph-RAG for code understanding, advised by Prof. Andrew McCallum (UMass).',
     points: [
@@ -27,12 +32,19 @@ export const experience: ExperienceItem[] = [
       'Developed precise code retrieval and localization, benchmarked on LocBench and DeepCodeBench.',
     ],
     tech: ['Graph-RAG', 'Knowledge Graphs', 'AST Indexing', 'Python'],
+    links: [
+      {
+        label: 'Blog: Hindsight on 99P Labs',
+        href: 'https://medium.com/99p-labs/hindsight-a-knowledge-graph-layer-for-navigating-large-codebases-6acf331c1766',
+      },
+    ],
   },
   {
     role: 'Co-Founder & Full-Stack Engineer',
     org: 'Fan2see',
     location: 'Taipei, Taiwan',
     period: 'Apr 2021 – Apr 2022',
+    logo: fan2seeLogo,
     summary:
       'Co-founded a personalized video-message platform connecting fans with their favorite stars, built on a PERN + AWS stack.',
     points: [

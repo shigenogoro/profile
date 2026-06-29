@@ -45,6 +45,8 @@ export interface ExperienceItem {
   summary: string
   points: string[]
   tech?: string[]
+  logo?: string
+  links?: { label: string; href: string }[]
 }
 
 export interface EducationItem {

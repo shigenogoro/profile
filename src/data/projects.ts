@@ -30,6 +30,33 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: 'Hindsight — Git Intelligence Layer',
+    tagline: 'Repo-level Graph-RAG for code understanding',
+    description:
+      'A Git intelligence layer that enhances retrieval-augmented generation with a knowledge-graph representation of repository structure. Combines BM25 lexical retrieval with graph-based context expansion over function-level call graphs to surface cross-file dependencies keyword search cannot reach.',
+    highlights: [
+      'AST-based call graphs, RepoGraph, DKB, and CGM graph-construction strategies',
+      'Evaluated on DeepCodeBench and LocBench with FactRecall@k and Acc@k',
+      'Grew out of repo-level Graph-RAG research at Honda Research Institute',
+    ],
+    tech: [
+      'Python',
+      'Graph-RAG',
+      'BM25',
+      'CodeRankEmbed',
+      'Dense Retrieval',
+      'Knowledge Graphs',
+      'AST Indexing',
+      'LocAgent',
+    ],
+    links: [
+      {
+        label: 'Read the blog post',
+        href: 'https://medium.com/99p-labs/hindsight-a-knowledge-graph-layer-for-navigating-large-codebases-6acf331c1766',
+      },
+    ],
+  },
+  {
     name: 'Multi-Agent RAG Filtering Pipeline',
     tagline: 'Alternative judge strategies for noise-robust retrieval',
     description:
@@ -40,19 +67,6 @@ export const projects: Project[] = [
       'Evaluated with EM / F1 / ROUGE-L against vanilla and score-cutoff RAG baselines',
     ],
     tech: ['Python', 'RAG', 'BM25 / DPR / Contriever', 'Hugging Face'],
-    links: [],
-  },
-  {
-    name: 'Hindsight — Git Intelligence Layer',
-    tagline: 'Repo-level Graph-RAG for code understanding',
-    description:
-      'A Git intelligence layer that enhances retrieval-augmented generation with a knowledge-graph representation of repository structure. Combines BM25 lexical retrieval with graph-based context expansion over function-level call graphs to surface cross-file dependencies keyword search cannot reach.',
-    highlights: [
-      'AST-based call graphs, RepoGraph, DKB, and CGM graph-construction strategies',
-      'Evaluated on DeepCodeBench and LocBench with FactRecall@k and Acc@k',
-      'Grew out of repo-level Graph-RAG research at Honda Research Institute',
-    ],
-    tech: ['Python', 'Graph-RAG', 'BM25', 'Knowledge Graphs', 'AST Indexing'],
     links: [],
   },
   {
