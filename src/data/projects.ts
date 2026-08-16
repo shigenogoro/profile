@@ -24,7 +24,7 @@ export const projects: Project[] = [
       'Vercel',
     ],
     links: [
-      { label: 'Live Demo', href: 'https://nhl-prospect-predictor.vercel.app/' },
+      { label: 'Live Demo', href: 'https://www.thepuckai.com/' },
     ],
     image: puckaiImg,
     featured: true,

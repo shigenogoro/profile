@@ -8,7 +8,7 @@ A single-page portfolio for an AI/ML Engineer job search, hosted on GitHub Pages
 I'm an AI/ML Engineer with an MS in Computer Science from UMass Amherst (2026). I build
 retrieval and reasoning systems that make large language models more accurate, grounded,
 and efficient — and I take them from research prototype to shipped product. I'm currently
-building [PuckAI](https://nhl-prospect-predictor.vercel.app/), a live full-stack NHL
+building [PuckAI](https://www.thepuckai.com/), a live full-stack NHL
 analytics platform with RAG scouting reports, and previously researched repo-level
 Graph-RAG as a Graduate Research Extern at Honda Research Institute & 99P Labs (advised by
 Prof. Andrew McCallum). My background spans an MS in Physics and a BS in Electrical
