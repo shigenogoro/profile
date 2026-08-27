@@ -13,11 +13,21 @@ export const experience: ExperienceItem[] = [
     summary:
       'Started PuckAI as an independent side project, took it live, and now develop it through the UMass CICS CICStep program — a full-stack NHL analytics platform that tiers, profiles, and projects players across five decades of hockey.',
     points: [
-      'Built an end-to-end ML system: multi-source ETL → feature engineering → model training → serving for 6,000+ skaters.',
-      'Shipped AI scouting reports with a Claude Opus 4.8 + Voyage AI RAG pipeline and pgvector similarity search.',
-      'Deployed serverless on Vercel + Supabase with an in-memory prefix-trie for sub-millisecond autocomplete.',
+      'Built a 9-stage ETL fed by 15+ scrapers (NHL.com, 63 NCAA Division I programs, 11 HockeyTech leagues) with per-(season, position) z-scores that make five decades of scoring comparable.',
+      'Trained per-position XGBoost classifiers on 481,000 pre-NHL season lines across 1,295 leagues and 48 seasons to project 54,933 prospects, and serve cross-era comparables as a single pgvector nearest-neighbor query.',
+      'Shipped a production RAG chatbot over 7,643 grounded reports — hybrid pgvector HNSW + Postgres full-text retrieval fused by weighted RRF, with Voyage AI embeddings and cross-encoder reranking.',
+      'Took scope-limited query relevance from NDCG@10 0.38/0.31 to 1.00 on a 77-query benchmark by routing team/league queries through a deterministic alias index instead of embeddings.',
+      'Generated all 7,643 scouting reports with 0 quarantined by constraining the LLM to pipeline-computed numbers behind a deterministic validator it must pass before a report ships.',
     ],
-    tech: ['Next.js', 'FastAPI', 'PostgreSQL + pgvector', 'XGBoost', 'RAG'],
+    tech: [
+      'Next.js',
+      'FastAPI',
+      'PostgreSQL + pgvector',
+      'XGBoost',
+      'RAG',
+      'Voyage AI',
+      'Supabase',
+    ],
   },
   {
     role: 'Graduate Research Extern',

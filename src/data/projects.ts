@@ -6,9 +6,9 @@ export const projects: Project[] = [
     name: 'PuckAI',
     tagline: 'Live full-stack NHL analytics platform with AI scouting reports',
     description:
-      'A live platform that tiers, profiles, and projects 6,000+ NHL skaters across five decades (1968–present). A 7-stage ETL pipeline ingests NHL.com and EliteProspects data into PostgreSQL + pgvector; the serving layer adds era-adjusted tiering, an XGBoost prospect classifier, vector similarity search, and a sub-millisecond in-memory prefix-trie autocomplete.',
+      'A live platform that tiers, profiles, and projects 6,184 NHL skaters across five decades (1968–present), plus 54,933 scored prospects. A 9-stage ETL pipeline ingests NHL.com, all 63 NCAA Division I programs, and 11 HockeyTech-powered leagues into PostgreSQL + pgvector; the serving layer adds era-adjusted tiering, an XGBoost prospect classifier, vector similarity search, and a sub-millisecond in-memory prefix-trie autocomplete.',
     highlights: [
-      'AI scouting reports powered by Claude Opus 4.8 + Voyage AI RAG',
+      'AI scouting reports powered by Claude + Voyage AI RAG — 7,643 generated, 0 quarantined',
       'Era-adjusted tiering that ranks cross-era legends consistently (6,184 skaters)',
       'XGBoost projection of prospect outcomes from limited early-career data',
       'pgvector nearest-neighbor comparables on an 8-dimension career aspect vector',
@@ -19,7 +19,7 @@ export const projects: Project[] = [
       'PostgreSQL + pgvector',
       'Supabase',
       'XGBoost',
-      'Claude Opus 4.8',
+      'Claude',
       'Voyage AI',
       'Vercel',
     ],
@@ -60,22 +60,27 @@ export const projects: Project[] = [
     name: 'Multi-Agent RAG Filtering Pipeline',
     tagline: 'Alternative judge strategies for noise-robust retrieval',
     description:
-      'A Predictor–Judge–Generator RAG pipeline (extending MAIN-RAG) that explores lightweight, rule-based and classifier judges in place of an LLM judge. Filters noisy retrieved context across QA benchmarks while preserving recall, cutting cost and latency versus an LLM-based judge.',
+      'A Predictor–Judge–Generator RAG pipeline (reimplementing MAIN-RAG from scratch, since no public implementation existed) that replaces the expensive LLM judge with lightweight rule-based thresholds. Each (query, document, answer) tuple is scored by the logit margin between the \"Yes\" and \"No\" tokens, then filtered to cut noisy context at a fraction of the LLM-judge cost.',
     highlights: [
-      'Trims LLM context by 40–60% with no loss in recall (HotpotQA, FEVER)',
-      'Adaptive thresholds: mean+std, Otsu, and quantile cutoffs on judge scores',
-      'Evaluated with EM / F1 / ROUGE-L against vanilla and score-cutoff RAG baselines',
+      'Rule-based thresholds (mean+std, Otsu, quantile) match the original adaptive-threshold results across four benchmark datasets',
+      'Benchmarked BM25 / DPR / Contriever under identical generation settings on HotpotQA with EM, F1, and ROUGE-L',
+      'Showed an aggressive 0.7 score cutoff hurts BM25 by pruning helpful evidence on small corpora',
+      'First author of the 5-person ACM-format report (UMass CS646)',
     ],
     tech: ['Python', 'RAG', 'BM25 / DPR / Contriever', 'Hugging Face'],
     links: [],
   },
   {
-    name: 'Temporal Summarization System',
-    tagline: 'Fine-tuned long-document summarization',
+    name: 'Timestamp-Aligned Summarization',
+    tagline: 'Chaptering ASR transcripts into titled, time-aligned segments',
     description:
-      'A summarization system using fine-tuned BART / LongT5 with temporal alignment, producing significantly more faithful long-document summaries than the pretrained baselines.',
-    highlights: ['Lifted ROUGE-L by 80% via fine-tuning + temporal alignment'],
-    tech: ['Python', 'PyTorch', 'BART', 'LongT5', 'Hugging Face'],
+      'A modular chaptering pipeline that segments ASR transcripts, generates per-segment titles with a fine-tuned BART, and aligns them back to the timeline with a BERT-based self-retrieval classifier — evaluated on MeetingBank and a 972-video VidChapters-7M subset.',
+    highlights: [
+      'ROUGE-1 62.97 / ROUGE-2 52.31 / ROUGE-L 59.83 with BERTScore F1 91.44 on MeetingBank',
+      '80.43% segment-alignment accuracy; Temporal F1 65.35% at ±15s',
+      'Established that stable duration-based segments beat semantic boundary selection under ASR-only input',
+    ],
+    tech: ['Python', 'PyTorch', 'BART', 'BERT', 'Hugging Face'],
     links: [],
   },
 ]
