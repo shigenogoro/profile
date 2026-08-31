@@ -35,7 +35,7 @@ export const projects: Project[] = [
       alt: 'PuckAI player intelligence page for Cale Makar: tiering, radar chart, season trajectory, AI scouting report, pgvector comparables, and the prospect model’s original projection',
       url: 'thepuckai.com/8480069',
       caption:
-        'Player intelligence page — era-adjusted tier, 8D radar, grounded scouting report, pgvector comparables, and the model’s pre-NHL call scored against what he became.',
+        'Player intelligence page: era-adjusted tier, 8D radar, grounded scouting report, pgvector comparables, and the model’s pre-NHL call scored against what he became.',
     },
     featured: true,
   },
