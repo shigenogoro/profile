@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PuckAI Demo Preview</title>
+<style>
+  :root {
+    --bg: #070a0e;
+    --panel: #0c1015;
+    --border: #1e293b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --accent: #22d3ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.6 -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+    padding: 48px 24px 80px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 20px; letter-spacing: .02em; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 28px; font-size: 13px; }
+
+  .controls { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  button {
+    background: transparent; color: var(--accent);
+    border: 1px solid rgba(34,211,238,.4); border-radius: 999px;
+    padding: 6px 14px; font: inherit; font-size: 12px; cursor: pointer;
+  }
+  button:hover { background: rgba(34,211,238,.1); }
+  button[aria-pressed="true"] { background: rgba(34,211,238,.15); border-color: var(--accent); }
+  label { color: var(--muted); font-size: 12px; display: flex; align-items: center; gap: 6px; }
+  input[type=range] { accent-color: var(--accent); }
+
+  /* browser frame */
+  .frame {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--panel);
+    box-shadow: 0 24px 60px rgba(0,0,0,.6);
+  }
+  .chrome {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px;
+    background: #11161d;
+    border-bottom: 1px solid var(--border);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .url {
+    flex: 1; margin-left: 8px;
+    background: #0a0e13; border: 1px solid var(--border); border-radius: 6px;
+    padding: 4px 10px; font-size: 11px; color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .viewport {
+    height: 560px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+  .viewport::-webkit-scrollbar { width: 8px; }
+  .viewport::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+  .viewport img { display: block; width: 100%; }
+
+  .hint { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+  /* segments */
+  h2 { font-size: 15px; margin: 56px 0 6px; letter-spacing: .02em; }
+  .seg { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; background: var(--panel); }
+  .seg figcaption { padding: 8px 14px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .seg img { display: block; width: 100%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PuckAI — Player Intelligence Demo</h1>
+  <p class="sub">Cale Makar (#8480069) · 整頁連續版長圖捲動預覽</p>
+
+  <div class="controls">
+    <button id="play" aria-pressed="false">▶ 自動捲動</button>
+    <button id="top">⤒ 回到頂端</button>
+    <label>速度 <input id="speed" type="range" min="10" max="120" value="45"></label>
+    <label>視窗高 <input id="vh" type="range" min="360" max="800" value="560"></label>
+  </div>
+
+  <div class="frame">
+    <div class="chrome">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="url">https://www.thepuckai.com/8480069</span>
+    </div>
+    <div class="viewport" id="vp">
+      <img src="./makar-full.png" alt="PuckAI player intelligence page — Cale Makar">
+    </div>
+  </div>
+  <p class="hint">滑鼠滾輪可直接捲動；自動捲動到底會停下來。</p>
+
+  <h2>分段版（5 張）</h2>
+  <figure class="seg"><figcaption>1 · Navbar + Player Hero</figcaption><img src="./makar-1-header-hero.png" alt=""></figure>
+  <figure class="seg"><figcaption>2 · Radar Chart + Season Trajectory</figcaption><img src="./makar-2-radar-trajectory.png" alt=""></figure>
+  <figure class="seg"><figcaption>3 · Scouting Report</figcaption><img src="./makar-3-scouting-report.png" alt=""></figure>
+  <figure class="seg"><figcaption>4 · Similar Style Players</figcaption><img src="./makar-4-similar-players.png" alt=""></figure>
+  <figure class="seg"><figcaption>5 · Prospect Era + The Model's Call</figcaption><img src="./makar-5-prospect-era.png" alt=""></figure>
+</div>
+
+<script>
+  const vp = document.getElementById('vp');
+  const play = document.getElementById('play');
+  const speed = document.getElementById('speed');
+  let raf = null, last = 0;
+
+  function step(t) {
+    if (!last) last = t;
+    const dt = (t - last) / 1000;
+    last = t;
+    vp.scrollTop += Number(speed.value) * dt;
+    if (vp.scrollTop + vp.clientHeight >= vp.scrollHeight - 1) return stop();
+    raf = requestAnimationFrame(step);
+  }
+  function start() { play.setAttribute('aria-pressed', 'true'); play.textContent = '❚❚ 暫停'; last = 0; raf = requestAnimationFrame(step); }
+  function stop() { play.setAttribute('aria-pressed', 'false'); play.textContent = '▶ 自動捲動'; if (raf) cancelAnimationFrame(raf); raf = null; }
+
+  play.addEventListener('click', () => raf ? stop() : start());
+  document.getElementById('top').addEventListener('click', () => { stop(); vp.scrollTo({ top: 0, behavior: 'smooth' }); });
+  vp.addEventListener('wheel', stop);
+  document.getElementById('vh').addEventListener('input', e => { vp.style.height = e.target.value + 'px'; });
+</script>
+</body>
+</html>

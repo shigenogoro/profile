@@ -26,6 +26,15 @@ export interface SkillGroup {
   skills: string[]
 }
 
+export interface ProjectShowcase {
+  /** Tall full-page screenshot, shown inside a scrollable browser frame. */
+  src: string
+  alt: string
+  /** Rendered in the frame's mock address bar. */
+  url: string
+  caption?: string
+}
+
 export interface Project {
   name: string
   tagline: string
@@ -34,6 +43,8 @@ export interface Project {
   tech: string[]
   links: { label: string; href: string }[]
   image?: string
+  /** Long-scroll product capture; takes the place of `image` when present. */
+  showcase?: ProjectShowcase
   featured?: boolean
 }
 

@@ -11,13 +11,14 @@ export const experience: ExperienceItem[] = [
     period: 'May 2025 – Present',
     logo: puckaiLogo,
     summary:
-      'Started PuckAI as an independent side project, took it live, and now develop it through the UMass CICS CICStep program — a full-stack NHL analytics platform that tiers, profiles, and projects players across five decades of hockey.',
+      'Started PuckAI as an independent side project, took it live, and now develop it through the UMass CICS CICStep program: a full-stack NHL analytics platform that tiers, profiles, and projects players across five decades of hockey.',
     points: [
-      'Built a 9-stage ETL fed by 15+ scrapers (NHL.com, 63 NCAA Division I programs, 11 HockeyTech leagues) with per-(season, position) z-scores that make five decades of scoring comparable.',
-      'Trained per-position XGBoost classifiers on 481,000 pre-NHL season lines across 1,295 leagues and 48 seasons to project 54,933 prospects, and serve cross-era comparables as a single pgvector nearest-neighbor query.',
-      'Shipped a production RAG chatbot over 7,643 grounded reports — hybrid pgvector HNSW + Postgres full-text retrieval fused by weighted RRF, with Voyage AI embeddings and cross-encoder reranking.',
-      'Took scope-limited query relevance from NDCG@10 0.38/0.31 to 1.00 on a 77-query benchmark by routing team/league queries through a deterministic alias index instead of embeddings.',
-      'Generated all 7,643 scouting reports with 0 quarantined by constraining the LLM to pipeline-computed numbers behind a deterministic validator it must pass before a report ships.',
+      'Built a 14-stage ETL (nine-stage NHL core plus five-stage prospect extension) fed by 15+ scrapers across NHL.com, 63 NCAA Division I programs, and 11 HockeyTech leagues, with per-(season, position) z-scores that make five decades of scoring comparable.',
+      'Trained a three-stage XGBoost hurdle model on 481,000 pre-NHL season lines (reach NHL at ROC-AUC 0.977, durability head, conditional landing tier) to project 54,933 prospects, with cross-league scoring normalized by NHLe factors across 1,295 leagues.',
+      'Shipped a production RAG chatbot over 7,643 grounded reports with hybrid pgvector HNSW + Postgres full-text retrieval fused by weighted RRF, Voyage AI embeddings, and cross-encoder reranking, lifting NDCG@10 from 0.488 to 0.682 on a 77-query benchmark.',
+      'Took scope-limited query relevance from NDCG@10 0.376/0.307 to 1.000 by routing team/league queries through a deterministic alias index instead of embeddings.',
+      'Generated all 7,643 scouting reports with 0 quarantined by constraining the LLM to pipeline-computed numbers behind a deterministic validator each report must pass before it ships.',
+      'Served cross-era comparables as a single pgvector nearest-neighbor query over 8-dimension career aspect vectors.',
     ],
     tech: [
       'Next.js',
@@ -27,6 +28,12 @@ export const experience: ExperienceItem[] = [
       'RAG',
       'Voyage AI',
       'Supabase',
+    ],
+    links: [
+      {
+        label: 'Engineering write-up',
+        href: 'https://github.com/shigenogoro/PuckAI-Engineering',
+      },
     ],
   },
   {
@@ -38,10 +45,10 @@ export const experience: ExperienceItem[] = [
     summary:
       'Researched repo-level Graph-RAG for code understanding, advised by Prof. Andrew McCallum (UMass).',
     points: [
-      'Built knowledge-graph + AST-level indexing to give models the structural context that text similarity misses.',
-      'Developed precise code retrieval and localization, benchmarked on LocBench and DeepCodeBench.',
+      'Architected Hindsight, fusing BM25 with intent-conditioned graph traversal over AST-built call graphs to surface cross-file dependencies keyword search cannot reach.',
+      'Reached file-level Acc@1 0.535 on DeepCodeBench with Qwen3-32B (+8.1 pts vs BM25, +11.2 pts vs adapted LocAgent) and built evaluation infrastructure for Fact Recall, Acc@k, and LLM-judged answer quality.',
     ],
-    tech: ['Graph-RAG', 'Knowledge Graphs', 'AST Indexing', 'Python'],
+    tech: ['Graph-RAG', 'Knowledge Graphs', 'AST Indexing', 'BM25', 'Python'],
     links: [
       {
         label: 'Blog: Hindsight on 99P Labs',

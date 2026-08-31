@@ -1,4 +1,5 @@
 import type { Project } from '../data/types'
+import ShowcaseFrame from './ShowcaseFrame'
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const featured = project.featured
@@ -8,7 +9,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
         featured ? 'md:flex-row' : ''
       }`}
     >
-      {project.image && (
+      {project.showcase && <ShowcaseFrame showcase={project.showcase} />}
+
+      {!project.showcase && project.image && (
         <div
           className={`overflow-hidden ${
             featured

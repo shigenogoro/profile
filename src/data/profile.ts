@@ -12,11 +12,11 @@ export const profile: Profile = {
     'ex-Honda Research Institute',
   ],
   valueProp:
-    'I build retrieval and reasoning systems that make large language models more accurate, grounded, and efficient — and I take them all the way from research prototype to shipped product.',
+    'I build retrieval and reasoning systems that make large language models more accurate, grounded, and efficient. I like taking ideas from research prototype all the way to something people can actually use.',
   about: [
-    'I earned my MS in Computer Science from UMass Amherst in 2026. As a Graduate Research Extern at Honda Research Institute & 99P Labs, I researched repo-level Graph-RAG under Prof. Andrew McCallum — giving models the structural context they usually miss through knowledge graphs, AST-level indexing, and precise code retrieval.',
-    'I am now focused on building PuckAI, a live full-stack ML platform, toward a product. A few things I have built: PuckAI (live NHL analytics over 6,184 skaters and 54,933 scored prospects, with AI scouting reports via Claude + Voyage AI RAG); a multi-agent RAG filtering pipeline that swaps an expensive LLM judge for lightweight rule-based thresholds; a timestamp-aligned summarization pipeline built on a fine-tuned BART and a BERT self-retrieval classifier; and Fan2see, a video platform I co-founded on a PERN + AWS stack.',
-    'My path here is a little unusual — an MS in Physics and a BS in Electrical Engineering before CS — and it is exactly what makes me think rigorously about systems and modeling from first principles.',
+    'I earned my MS in Computer Science from UMass Amherst in 2026. As a Graduate Research Extern at Honda Research Institute & 99P Labs, I worked on repo-level Graph-RAG with Prof. Andrew McCallum: knowledge graphs, AST-level indexing, and code retrieval that gives models the structural context text similarity alone misses.',
+    'Right now I am building PuckAI, a live full-stack ML platform I started as an independent project and now develop through UMass CICS CICStep. It tiers and projects NHL skaters across five decades (6,184 players, 54,933 scored prospects), ships 7,643 grounded scouting reports behind a deterministic validator, and answers natural-language questions through a hybrid RAG stack I measured end to end. I have also built a multi-agent RAG filtering pipeline that trades an expensive LLM judge for lightweight rule-based thresholds, a timestamp-aligned summarization pipeline on fine-tuned BART and BERT self-retrieval, and Fan2see, a video platform I co-founded on PERN and AWS.',
+    'My path is a little unusual: an MS in Physics and a BS in Electrical Engineering before CS.',
   ],
   quickFacts: [
     'Amherst, MA',
